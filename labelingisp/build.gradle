@@ -1,0 +1,38 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.1.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+}
+
+group = 'com.github.darrmirr'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+
+	// https://mvnrepository.com/artifact/com.github.haifengl/smile-core
+	compile group: 'com.github.haifengl', name: 'smile-core', version: project.property('smile.version')
+	// https://mvnrepository.com/artifact/com.github.haifengl/smile-plot
+	compile group: 'com.github.haifengl', name: 'smile-plot', version: project.property('smile.version')
+	// https://mvnrepository.com/artifact/com.github.haifengl/smile-data
+	compile group: 'com.github.haifengl', name: 'smile-data', version: project.property('smile.version')
+	// https://mvnrepository.com/artifact/org.nd4j/nd4j-native-platform
+	compile group: 'org.nd4j', name: 'nd4j-native-platform', version: project.property('nd4j.version')
+}
+
+test {
+	useJUnitPlatform()
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_11
+	targetCompatibility = JavaVersion.VERSION_11
+}
