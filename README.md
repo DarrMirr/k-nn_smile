@@ -2,4 +2,4 @@
 
 - Handwritten digit recognizer
 - Edge detection
-- K-nn algorithm
+- K-nn algorithm (labelingisp)
